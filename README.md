@@ -12,4 +12,5 @@ yarn dev
 
 ## Links
 
-- [Vite + TypeScript](./doc/vite_readme.md)
+- [Tutorial: Making your first add-on](https://developers.home-assistant.io/docs/add-ons/tutorial).
+- [Installing Express](https://expressjs.com/en/starter/installing.html).
