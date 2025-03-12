@@ -1,8 +1,8 @@
 # Node JS Server
 
-Home Assistant custom addon to run a minimum Node JS server with Express
+A Home Assistant custom add-on that runs an HTTP server using Node.js and Express. It exposes an endpoint at *http://localhost:3000*
 
-> The hostname (the hostname of the Docker container) for the addon will be *local-nodejs-server*, which is generated from slug name defined in *config.yaml* as described in [Add-on communication](https://developers.home-assistant.io/docs/add-ons/communication).
+> The hostname (Docker container hostname) for the add-on will be *local-nodejs-server*, derived from the slug name defined in *config.yaml*, as explained in [Add-on communication](https://developers.home-assistant.io/docs/add-ons/communication).
 
 ## Development
 
