@@ -5,6 +5,8 @@ import path from 'path';
  * Cron expressions are currently not working with TypeScript due to an issue with bree importing cron-validate using Common JS
  */
 
+// const asd = later.parse.cron("* * * * *", false)
+
 const jobs: Array<JobOptions> = [
   {
     name: 'test_1',
@@ -18,7 +20,7 @@ const jobs: Array<JobOptions> = [
   },
   {
     name: 'test_2',
-    interval: 'every 40 seconds',
+    interval: 'every 10 seconds',
     worker: {
       workerData: {
         arg1: 2
@@ -29,3 +31,4 @@ const jobs: Array<JobOptions> = [
 ];
 
 export default jobs;
+
