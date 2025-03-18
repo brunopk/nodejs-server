@@ -1,9 +1,15 @@
+import Graceful from '@ladjs/graceful';
+import Bree from 'bree';
 import express from 'express';
 import http from 'http';
 import { HttpError } from 'http-errors';
 import morgan from 'morgan';
-import winston from 'winston';
+import jobs from './jobs/config';
+import { breeLogger, gracefulLogger, expressLogger as logger } from './logging';
 import router from './router';
+
+/**************************************************************************************************
+ **************************************************************************************************/
 
 /**
  * Normalize a port into a number, string, or false.
@@ -64,28 +70,31 @@ function onListening() {
   logger.warn('Listening on ' + bind);
 }
 
-// Winston (logging) configuration
+/**************************************************************************************************
+ *                                           BREE                                                 *
+ **************************************************************************************************/
 
-const alignColorsAndTime = winston.format.combine(
-  winston.format.label({
-    label: '[node]'
-  }),
-  winston.format.timestamp({
-    format: 'YYYY-MM-DD HH:mm:ssZ'
-  }),
-  winston.format.printf(
-    (info) => `${info.label} [${info.timestamp}] [${info.level}] ${info.message}`
-  )
-);
-
-const logger = winston.createLogger({
-  level: 'debug',
-  transports: [
-    new winston.transports.Console({
-      format: winston.format.combine(winston.format.colorize(), alignColorsAndTime)
-    })
-  ]
+const bree = new Bree({
+  root: false,
+  logger: breeLogger,
+  jobs
 });
+
+// handle graceful reloads, pm2 support, and events like SIGHUP, SIGINT, etc.
+
+const graceful = new Graceful({ brees: [bree], logger: gracefulLogger });
+
+graceful.listen();
+
+// start all jobs (this is the equivalent of reloading a crontab):
+
+(async () => {
+  await bree.start();
+})();
+
+/**************************************************************************************************
+ *                                          EXPRESS                                               *
+ **************************************************************************************************/
 
 const port = normalizePort(process.env.PORT || '3000');
 
@@ -107,7 +116,7 @@ app.use(
 
 app.use('*', router);
 
-// Customization of HTTP server provided by Node standard library
+// Customization of HTTP server (http module provided by Node.js standard library)
 
 const server = http.createServer(app);
 
