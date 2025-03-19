@@ -1,7 +1,9 @@
 import { parentPort, workerData } from 'worker_threads';
 import loggerFactory from '../logging';
+import { v4 as uuidv4 } from 'uuid';
 
-const logger = loggerFactory(null, workerData);
+
+const logger = loggerFactory(null, { workerData, executionId: uuidv4().slice(0, 5)});
 
 const snooze = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 

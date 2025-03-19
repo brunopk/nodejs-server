@@ -8,6 +8,11 @@ type WorkerData = {
   }
 }
 
+type WorkerLoggingParameters = {
+  workerData: WorkerData,
+  executionId: string
+}
+
 function defaultAlignColorsAndTime(label: Label) {
   return winston.format.combine(
     winston.format.label({
@@ -22,10 +27,10 @@ function defaultAlignColorsAndTime(label: Label) {
   );
 }
 
-function workerAlignColorsAndTime(workerData: WorkerData) {
+function workerAlignColorsAndTime(workerLoggingParameters: WorkerLoggingParameters) {
   return winston.format.combine(
     winston.format.label({
-      label: `[${workerData.job.name}]`
+      label: `[${workerLoggingParameters.workerData.job.name}] [${workerLoggingParameters.executionId}]`
     }),
     winston.format.timestamp({
       format: 'YYYY-MM-DD HH:mm:ssZ'
@@ -47,20 +52,20 @@ function defaultLoggerFactory(label: Label) {
   });
 }
 
-function workerLoggerFactory(workerData: WorkerData) {
+function workerLoggerFactory(workerLoggingParameters: WorkerLoggingParameters) {
   return winston.createLogger({
     level: 'debug',
     transports: [
       new winston.transports.Console({
-        format: winston.format.combine(winston.format.colorize(), workerAlignColorsAndTime(workerData))
+        format: winston.format.combine(winston.format.colorize(), workerAlignColorsAndTime(workerLoggingParameters))
       })
     ]
   });
 }
 
-function loggerFactory(label: Label, workerData?: WorkerData) {
-  if (typeof workerData !== 'undefined') {
-    return workerLoggerFactory(workerData);
+function loggerFactory(label: Label, workerLoggingParameters?: WorkerLoggingParameters) {
+  if (typeof workerLoggingParameters !== 'undefined') {
+    return workerLoggerFactory(workerLoggingParameters);
   } else {
     return defaultLoggerFactory(label);
   }
