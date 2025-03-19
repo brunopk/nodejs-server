@@ -5,7 +5,7 @@ import http from 'http';
 import { HttpError } from 'http-errors';
 import morgan from 'morgan';
 import jobs from './jobs/config';
-import { breeLogger, gracefulLogger, expressLogger as logger } from './logging';
+import loggerFactory from './logging';
 import router from './router';
 
 /**************************************************************************************************
@@ -69,6 +69,16 @@ function onListening() {
   const bind = typeof addr === 'string' ? 'pipe ' + addr : 'port ' + addr.port;
   logger.warn('Listening on ' + bind);
 }
+
+/**************************************************************************************************
+ *                                          LOGGING                                               *
+ **************************************************************************************************/
+
+const logger = loggerFactory('express')
+
+const breeLogger = loggerFactory('bree')
+
+const gracefulLogger = loggerFactory('graceful')
 
 /**************************************************************************************************
  *                                           BREE                                                 *

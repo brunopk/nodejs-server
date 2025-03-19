@@ -1,5 +1,7 @@
 import { parentPort, workerData } from 'worker_threads';
-import { breeLogger as logger } from '../logging';
+import loggerFactory from '../logging';
+
+const logger = loggerFactory(null, workerData)
 
 logger.info('Hello world !');
 
