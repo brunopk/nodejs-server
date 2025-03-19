@@ -1,17 +1,24 @@
 import { parentPort, workerData } from 'worker_threads';
 import loggerFactory from '../logging';
 
-const logger = loggerFactory(null, workerData)
+const logger = loggerFactory(null, workerData);
 
-logger.info('Hello world !');
+const snooze = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
-logger.info(`Data received ${JSON.stringify(workerData.arg1)}`);
+logger.info('Starting job!');
 
-logger.info(JSON.stringify(workerData.arg1));
+const job = async () => {
+  await snooze(2000);
 
-// signal to parent that the job is done
+  logger.info(`Data received ${JSON.stringify(workerData.arg1)}`);
 
-if (parentPort)
-  parentPort.postMessage('done');
+  logger.info(JSON.stringify(workerData.arg1));
 
-process.exit(0);
+  // signal to parent that the job is done
+
+  if (parentPort) parentPort.postMessage('done');
+
+  process.exit(0);
+};
+
+job();

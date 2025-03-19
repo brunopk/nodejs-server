@@ -23,7 +23,7 @@ const jobs: Array<JobOptions> = [
     interval: 'every 10 seconds',
     worker: {
       workerData: {
-        arg1: 2
+        arg1: 3
       }
     },
     path: path.join(__dirname, 'test.js')
