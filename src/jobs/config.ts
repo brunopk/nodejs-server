@@ -1,16 +1,19 @@
+// @ts-nocheck
+
 import { JobOptions } from 'bree';
+import later from 'later';
 import path from 'path';
 
 /**
- * Cron expressions are currently not working with TypeScript due to an issue with bree importing cron-validate using Common JS
+ * Cron expressions are not currently working as strings and can only be created with 
+ * later.parse.cron due to an issue with Bree and cron-validate in TypeScript, caused 
+ * by importing cron-validate as a CommonJS module.
  */
-
-// const asd = later.parse.cron("* * * * *", false)
 
 const jobs: Array<JobOptions> = [
   {
     name: 'test_1',
-    interval: 'every 30 seconds',
+    interval: later.parse.cron('* * * * *', false),
     worker: {
       workerData: {
         arg1: 2
@@ -31,4 +34,3 @@ const jobs: Array<JobOptions> = [
 ];
 
 export default jobs;
-
