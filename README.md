@@ -1,11 +1,23 @@
 # Node JS Server
 
-A Home Assistant custom add-on that runs an HTTP server using Node.js and Express. It exposes an endpoint at *http://localhost:3000*. Also includes [Bree](https://www.npmjs.com/package/bree) to handle scheduled jobs.
+A Home Assistant custom add-on that runs an HTTP server using Node.js and Express. It serves as a boilerplate code.
 
-> - The hostname (Docker container hostname) for the add-on will be *local-nodejs-server*, derived from the slug name defined in *config.yaml*, as explained in [Add-on communication](https://developers.home-assistant.io/docs/add-ons/communication).
-> - To test it's working, the API is provided with the endpoint GET /, it should return "Hello World"
+For testing purposes, the API is provided with the endpoint `GET /` which should return "Hello World"
+
+## Features
+
+- Provided with [Bree](https://www.npmjs.com/package/bree) to handle scheduled jobs.
+
+## Important notes
+
+- **The hostname (Docker container hostname) for the add-on will be *local-nodejs-server*, derived from the slug name defined in *config.yaml*, as explained in [Add-on communication](https://developers.home-assistant.io/docs/add-ons/communication).**
 
 ## Development
+
+### Requirements
+
+- MySQL (can be installed with `brew` in macOS).
+- Node.js (recommended to install with NVM).
 
 ### Development with HMR (hot module reloading)
 
