@@ -1,8 +1,6 @@
 # Node JS Server
 
-A Home Assistant custom add-on that runs an HTTP server using Node.js and Express. It serves as a boilerplate code.
-
-For testing purposes, the API is provided with the endpoint `GET /` which should return "Hello World"
+A Home Assistant custom add-on that runs an HTTP server using Node.js and Express. It serves as a boilerplate code. For testing purposes, the API is provided with the endpoint `GET /` which should return "Hello World"
 
 ## Features
 
@@ -27,8 +25,8 @@ yarn dev
 
 ## Links
 
-- [Tutorial: Making your first add-on](https://developers.home-assistant.io/docs/add-ons/tutorial).
-- [How to Set Up ESLint and Prettier in a TypeScript Project](https://dev.to/forhad96/-how-to-set-up-eslint-and-prettier-in-a-typescript-project-3pi2).
-- [Getting Started with ESLint](https://eslint.org/docs/latest/use/getting-started).
-- [Installing Express](https://expressjs.com/en/starter/installing.html).
-- [Bree](https://www.npmjs.com/package/bree).
+- [Tutorial: Making your first add-on](https://developers.home-assistant.io/docs/add-ons/tutorial)
+- [How to Set Up ESLint and Prettier in a TypeScript Project](https://dev.to/forhad96/-how-to-set-up-eslint-and-prettier-in-a-typescript-project-3pi2)
+- [Getting Started with ESLint](https://eslint.org/docs/latest/use/getting-started)
+- [Express](https://expressjs.com/)
+- [Bree](https://www.npmjs.com/package/bree)
