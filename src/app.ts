@@ -74,11 +74,11 @@ function onListening() {
  *                                          LOGGING                                               *
  **************************************************************************************************/
 
-const logger = loggerFactory('express')
+const logger = loggerFactory('express');
 
-const breeLogger = loggerFactory('bree')
+const breeLogger = loggerFactory('bree');
 
-const gracefulLogger = loggerFactory('graceful')
+const gracefulLogger = loggerFactory('graceful');
 
 /**************************************************************************************************
  *                                           BREE                                                 *

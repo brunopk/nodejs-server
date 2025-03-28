@@ -4,14 +4,14 @@ type Label = 'express' | 'bree' | 'graceful' | null;
 
 type WorkerData = {
   job: {
-    name: string
-  }
-}
+    name: string;
+  };
+};
 
 type WorkerLoggingParameters = {
-  workerData: WorkerData,
-  executionId: string
-}
+  workerData: WorkerData;
+  executionId: string;
+};
 
 function defaultAlignColorsAndTime(label: Label) {
   return winston.format.combine(
@@ -57,7 +57,10 @@ function workerLoggerFactory(workerLoggingParameters: WorkerLoggingParameters) {
     level: 'debug',
     transports: [
       new winston.transports.Console({
-        format: winston.format.combine(winston.format.colorize(), workerAlignColorsAndTime(workerLoggingParameters))
+        format: winston.format.combine(
+          winston.format.colorize(),
+          workerAlignColorsAndTime(workerLoggingParameters)
+        )
       })
     ]
   });

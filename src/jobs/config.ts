@@ -5,8 +5,8 @@ import later from 'later';
 import path from 'path';
 
 /**
- * Cron expressions are not currently working as strings and can only be created with 
- * later.parse.cron due to an issue with Bree and cron-validate in TypeScript, caused 
+ * Cron expressions are not currently working as strings and can only be created with
+ * later.parse.cron due to an issue with Bree and cron-validate in TypeScript, caused
  * by importing cron-validate as a CommonJS module.
  */
 
