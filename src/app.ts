@@ -7,6 +7,7 @@ import morgan from 'morgan';
 import jobs from './jobs/config';
 import loggerFactory from './logging';
 import router from './router';
+import dotenv from 'dotenv-flow'
 
 /**************************************************************************************************
  **************************************************************************************************/
@@ -69,6 +70,12 @@ function onListening() {
   const bind = typeof addr === 'string' ? 'pipe ' + addr : 'port ' + addr.port;
   logger.warn('Listening on ' + bind);
 }
+
+/**************************************************************************************************
+ *                                  ENVIRONMENT VARIABLES                                         *
+ **************************************************************************************************/
+
+dotenv.config()
 
 /**************************************************************************************************
  *                                          LOGGING                                               *
