@@ -14,7 +14,7 @@ A Home Assistant custom add-on that runs an HTTP server using Node.js and Expres
 
 ### Requirements
 
-- MySQL (can be installed with `brew` in macOS).
+- MariaDB 10.11 (see [Databases](doc/db.md)).
 - Node.js (recommended to install with NVM).
 
 ### Development with HMR (hot module reloading)
