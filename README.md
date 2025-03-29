@@ -1,8 +1,8 @@
 # Node JS Server
 
-A Home Assistant custom add-on that runs an HTTP server using Node.js and Express. It serves as a boilerplate code. For testing purposes.
+A Home Assistant custom add-on that runs an HTTP server in Node.js. It can be used as a boilerplate.
 
-The API exposes two endpoints:
+The API is built [Express](https://expressjs.com/) and exposes two endpoints:
 
 - `GET /hello`: returns "Hello World"
 - `GET /db`: returns data from Maria DB (see [doc/db.md](doc/db.md))
