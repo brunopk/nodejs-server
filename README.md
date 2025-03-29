@@ -9,7 +9,14 @@ The API is built with [Express](https://expressjs.com/) and exposes two endpoint
 
 ## Features
 
-- Provided with [Bree](https://www.npmjs.com/package/bree) to handle scheduled jobs.
+- ESLint and Prettier configurations for linting.
+- Winston for logging.
+- [Bree](https://www.npmjs.com/package/bree) to handle scheduled jobs.
+- [MySQL2](https://sidorares.github.io/node-mysql2/docs) for database.
+- [dotenv](https://www.npmjs.com/package/dotenv) for configurations.
+
+> The ESLint configuration (eslint.config.mjs) is created with `yarn create @eslint/config -- --config eslint-config-standard
+` as described in [Getting Started with ESLint](https://eslint.org/docs/latest/use/getting-started)
 
 ## Important notes
 
@@ -31,6 +38,10 @@ The API is built with [Express](https://expressjs.com/) and exposes two endpoint
     yarn dev
     ```
 
+## Future improvements
+
+- Loading configurations from add-on instead of environment variables
+
 ## Links
 
 - [Tutorial: Making your first add-on](https://developers.home-assistant.io/docs/add-ons/tutorial)
@@ -38,3 +49,5 @@ The API is built with [Express](https://expressjs.com/) and exposes two endpoint
 - [Getting Started with ESLint](https://eslint.org/docs/latest/use/getting-started)
 - [Express](https://expressjs.com/)
 - [Bree](https://www.npmjs.com/package/bree)
+- [MySQL2](https://sidorares.github.io/node-mysql2/docs)
+- [dotenv](https://www.npmjs.com/package/dotenv)
