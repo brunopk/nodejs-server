@@ -1,8 +1,8 @@
 # Node JS Server
 
-A Home Assistant custom add-on that runs an HTTP server in Node.js. It can be used as a boilerplate.
+A Home Assistant custom add-on that runs an HTTP server in Node.js to provide a REST API.
 
-The API is built [Express](https://expressjs.com/) and exposes two endpoints:
+The API is built with [Express](https://expressjs.com/) and exposes two endpoints:
 
 - `GET /hello`: returns "Hello World"
 - `GET /db`: returns data from Maria DB (see [doc/db.md](doc/db.md))
@@ -13,7 +13,7 @@ The API is built [Express](https://expressjs.com/) and exposes two endpoints:
 
 ## Important notes
 
-- **The hostname (Docker container hostname) for the add-on will be *local-nodejs-server*, derived from the slug name defined in *config.yaml*, as explained in [Add-on communication](https://developers.home-assistant.io/docs/add-ons/communication).**
+- **The hostname for the add-on will be *local-nodejs-server*, which is derived from the slug name defined in *config.yaml*, as explained in [Add-on communication](https://developers.home-assistant.io/docs/add-ons/communication). Also it will be displayed on add-on information page in Home Assistant.**
 
 ## Development
 
