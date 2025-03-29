@@ -1,6 +1,11 @@
 # Node JS Server
 
-A Home Assistant custom add-on that runs an HTTP server using Node.js and Express. It serves as a boilerplate code. For testing purposes, the API is provided with the endpoint `GET /` which should return "Hello World"
+A Home Assistant custom add-on that runs an HTTP server using Node.js and Express. It serves as a boilerplate code. For testing purposes.
+
+The API exposes two endpoints:
+
+- `GET /hello`: returns "Hello World"
+- `GET /db`: returns data from Maria DB (see [doc/db.md](doc/db.md))
 
 ## Features
 
@@ -14,14 +19,17 @@ A Home Assistant custom add-on that runs an HTTP server using Node.js and Expres
 
 ### Requirements
 
-- MariaDB 10.11 (see [Databases](doc/db.md)).
+- MariaDB 10.11 (see [doc/db.md](doc/db.md)).
 - Node.js (recommended to install with NVM).
 
 ### Development with HMR (hot module reloading)
 
-```bash
-yarn dev
-```
+1. Create local database for development (see [doc/db.md](doc/db.md)).
+2. Run the server:
+
+    ```bash
+    yarn dev
+    ```
 
 ## Links
 

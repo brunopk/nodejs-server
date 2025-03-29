@@ -4,10 +4,10 @@ import express from 'express';
 import http from 'http';
 import { HttpError } from 'http-errors';
 import morgan from 'morgan';
+import getConfig from './config';
 import jobs from './jobs/config';
 import loggerFactory from './logging';
 import router from './router';
-import dotenv from 'dotenv-flow'
 
 /**************************************************************************************************
  **************************************************************************************************/
@@ -68,14 +68,8 @@ function onListening() {
     return;
   }
   const bind = typeof addr === 'string' ? 'pipe ' + addr : 'port ' + addr.port;
-  logger.warn('Listening on ' + bind);
+  logger.info('Listening on ' + bind);
 }
-
-/**************************************************************************************************
- *                                  ENVIRONMENT VARIABLES                                         *
- **************************************************************************************************/
-
-dotenv.config()
 
 /**************************************************************************************************
  *                                          LOGGING                                               *
@@ -86,6 +80,12 @@ const logger = loggerFactory('express');
 const breeLogger = loggerFactory('bree');
 
 const gracefulLogger = loggerFactory('graceful');
+
+/**************************************************************************************************
+ *                                      CONFIGURATIONS                                            *
+ **************************************************************************************************/
+
+const config = getConfig();
 
 /**************************************************************************************************
  *                                           BREE                                                 *
@@ -113,7 +113,7 @@ graceful.listen();
  *                                          EXPRESS                                               *
  **************************************************************************************************/
 
-const port = normalizePort(process.env.PORT || '3000');
+const port = normalizePort(config.port);
 
 const app = express();
 
@@ -131,7 +131,7 @@ app.use(
 
 // Router
 
-app.use('*', router);
+app.use('/', router);
 
 // Customization of HTTP server (http module provided by Node.js standard library)
 
