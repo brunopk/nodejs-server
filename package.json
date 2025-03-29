@@ -10,7 +10,7 @@
     "build": "tsc",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "prettier": "prettier --ignore-path .gitignore --write \"./src/**/*.+(js|ts|json)\"",
+    "prettier": "prettier --ignore-path .gitignore --check \"./src/**/*.+(js|ts|json)\"",
     "prettier:fix": "prettier --write src"
   },
   "nodemonConfig": {
