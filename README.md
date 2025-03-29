@@ -5,7 +5,7 @@ A Home Assistant custom add-on that runs an HTTP server in Node.js to provide a 
 The API is built with [Express](https://expressjs.com/) and exposes two endpoints:
 
 - `GET /hello`: returns "Hello World"
-- `GET /db`: returns data from Maria DB (see [doc/db.md](doc/db.md))
+- `GET /db`: returns data from Maria DB (see [db.md](doc/db.md))
 
 ## Features
 
@@ -26,12 +26,12 @@ The API is built with [Express](https://expressjs.com/) and exposes two endpoint
 
 ### Requirements
 
-- MariaDB 10.11 (see [doc/db.md](doc/db.md)).
+- MariaDB 10.11 (see [db.md](doc/db.md)).
 - Node.js (recommended to install with NVM).
 
 ### Development with HMR (hot module reloading)
 
-1. Create local database for development (see [doc/db.md](doc/db.md)).
+1. Create local database for development (see [db.md](doc/db.md)).
 2. Run the server:
 
     ```bash
