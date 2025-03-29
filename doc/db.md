@@ -1,4 +1,4 @@
-# Databases
+# Database
 
 An easy way to install and run any Maria DB version is through Docker:
 
