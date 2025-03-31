@@ -17,7 +17,7 @@
     "watch": [
       "src"
     ],
-    "exec": "tsc && NODE_ENV=development node ./dist/app.js",
+    "exec": "tsc && NODE_ENV=development node ./dist/src/app.js",
     "ext": "ts,js,json"
   },
   "dependencies": {

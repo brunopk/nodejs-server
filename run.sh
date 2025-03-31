@@ -7,4 +7,4 @@ cd dist
 npm install
 
 echo Starting server
-node app.js
+NODE_ENV=production node app.js

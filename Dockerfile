@@ -8,7 +8,8 @@ RUN \
 
 # Copy data for add-on
 COPY run.sh /
-COPY dist/ /dist
+COPY src/ /dist
+COPY .env.production /dist
 COPY package.json /dist
 RUN chmod a+x /run.sh
 
