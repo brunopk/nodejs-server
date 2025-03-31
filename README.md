@@ -11,6 +11,7 @@ The API is built with [Express](https://expressjs.com/) and exposes two endpoint
 
 - ESLint and Prettier configurations for linting.
 - Winston for logging.
+- CORS headers enabled for development.
 - [Bree](https://www.npmjs.com/package/bree) to handle scheduled jobs.
 - [MySQL2](https://sidorares.github.io/node-mysql2/docs) for database.
 - [dotenv](https://www.npmjs.com/package/dotenv) for configurations.
