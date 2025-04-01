@@ -9,12 +9,13 @@ The API is built with [Express](https://expressjs.com/) and exposes two endpoint
 
 ## Features
 
-- ESLint and Prettier configurations for linting.
-- Winston for logging.
-- CORS headers enabled for development.
-- [Bree](https://www.npmjs.com/package/bree) to handle scheduled jobs.
-- [MySQL2](https://sidorares.github.io/node-mysql2/docs) for database.
-- [dotenv](https://www.npmjs.com/package/dotenv) for configurations.
+- ESLint and Prettier configurations for linting
+- Winston for logging
+- CORS headers enabled for development
+- Error middleware following recommendations in [this](https://github.com/davidbanham/express-async-errors/issues/33) GitHub thread
+- [Bree](https://www.npmjs.com/package/bree) to handle scheduled jobs
+- [MySQL2](https://sidorares.github.io/node-mysql2/docs) for database
+- [dotenv](https://www.npmjs.com/package/dotenv) for configurations
 
 > The ESLint configuration (eslint.config.mjs) is created with `yarn create @eslint/config -- --config eslint-config-standard
 ` as described in [Getting Started with ESLint](https://eslint.org/docs/latest/use/getting-started)
@@ -49,6 +50,7 @@ The API is built with [Express](https://expressjs.com/) and exposes two endpoint
 - [How to Set Up ESLint and Prettier in a TypeScript Project](https://dev.to/forhad96/-how-to-set-up-eslint-and-prettier-in-a-typescript-project-3pi2)
 - [Getting Started with ESLint](https://eslint.org/docs/latest/use/getting-started)
 - [Express](https://expressjs.com/)
+- [Using middlewares](https://expressjs.com/en/guide/using-middleware.html)
 - [Bree](https://www.npmjs.com/package/bree)
 - [MySQL2](https://sidorares.github.io/node-mysql2/docs)
 - [dotenv](https://www.npmjs.com/package/dotenv)

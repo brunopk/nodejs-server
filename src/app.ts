@@ -1,7 +1,7 @@
 import Graceful from '@ladjs/graceful';
 import Bree from 'bree';
 import cors from 'cors';
-import express from 'express';
+import express, { ErrorRequestHandler } from 'express';
 import http from 'http';
 import { HttpError } from 'http-errors';
 import morgan from 'morgan';
@@ -72,6 +72,21 @@ function onListening() {
   logger.info('Listening on ' + bind);
 }
 
+/**
+ * Error middleware
+ *
+ * Important: set status before sending data (https://bit.ly/3Rww26S)
+ * @param err
+ * @param req
+ * @param res
+ * @param next
+ */
+const onHandlerError: ErrorRequestHandler = async (err, _, res, next) => {
+  logger.error('', err)
+  res.status(500).send(err)
+  next();
+}
+
 /**************************************************************************************************
  *                                          LOGGING                                               *
  **************************************************************************************************/
@@ -135,6 +150,10 @@ app.use(
 // Router
 
 app.use('/', router);
+
+// Error middleware
+
+app.use('/', onHandlerError);
 
 // Customization of HTTP server (http module provided by Node.js standard library)
 
