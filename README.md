@@ -11,7 +11,7 @@ The API is built with [Express](https://expressjs.com/) and exposes two endpoint
 
 - ESLint and Prettier configurations for linting
 - CORS headers enabled for development
-- Error middleware following recommendations in [this](https://github.com/davidbanham/express-async-errors/issues/33) GitHub thread
+- Error middleware following recommendations in [this](https://ioannisioannou.me/using-async-await-in-express-js/) article.
 - [Winston](https://github.com/winstonjs) for logging
 - [Bree](https://www.npmjs.com/package/bree) to handle scheduled jobs
 - [MySQL2](https://sidorares.github.io/node-mysql2/docs) for database
