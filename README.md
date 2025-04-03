@@ -10,9 +10,9 @@ The API is built with [Express](https://expressjs.com/) and exposes two endpoint
 ## Features
 
 - ESLint and Prettier configurations for linting
-- Winston for logging
 - CORS headers enabled for development
 - Error middleware following recommendations in [this](https://github.com/davidbanham/express-async-errors/issues/33) GitHub thread
+- [Winston](https://github.com/winstonjs) for logging
 - [Bree](https://www.npmjs.com/package/bree) to handle scheduled jobs
 - [MySQL2](https://sidorares.github.io/node-mysql2/docs) for database
 - [dotenv](https://www.npmjs.com/package/dotenv) for configurations
@@ -23,6 +23,17 @@ The API is built with [Express](https://expressjs.com/) and exposes two endpoint
 ## Important notes
 
 - **The hostname for the add-on will be *local-nodejs-server*, which is derived from the slug name defined in *config.yaml*, as explained in [Add-on communication](https://developers.home-assistant.io/docs/add-ons/communication). Also it will be displayed on add-on information page in Home Assistant.**
+
+## Configurations
+
+In order to run application correctly some environment variables must be defined:
+
+- For production: `.env.production`
+- For development: `.env.development`
+
+Also they can be defined as usual with `export ENV_VAR=value` before running.
+
+> To change [logging level](https://github.com/winstonjs/winston?tab=readme-ov-file#logging-levels), set `LOG_LEVEL`
 
 ## Development
 
@@ -54,3 +65,4 @@ The API is built with [Express](https://expressjs.com/) and exposes two endpoint
 - [Bree](https://www.npmjs.com/package/bree)
 - [MySQL2](https://sidorares.github.io/node-mysql2/docs)
 - [dotenv](https://www.npmjs.com/package/dotenv)
+- [Winston](https://github.com/winstonjs)

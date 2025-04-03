@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from 'uuid';
 import { parentPort, workerData } from 'worker_threads';
-import loggerFactory from '../logging';
+import {loggerFactory} from '../logging';
 
 const logger = loggerFactory(null, { workerData, executionId: uuidv4().slice(0, 5) });
 
